@@ -1,0 +1,12 @@
+1.18
+perl(CGI)
+perl(Crypt::DH::GMP)
+perl(HTML::Parser)
+perl(HTTP::Date)
+perl(HTTP::Request)
+perl(JSON)
+perl(LWP::UserAgent)
+perl(Net::OpenID::Common)
+perl(Try::Tiny)
+perl(URI)
+perl(XML::Simple)
