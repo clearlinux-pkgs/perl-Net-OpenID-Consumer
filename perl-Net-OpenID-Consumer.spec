@@ -86,10 +86,10 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.26.1/Net/OpenID/Association.pm
-/usr/lib/perl5/vendor_perl/5.26.1/Net/OpenID/ClaimedIdentity.pm
-/usr/lib/perl5/vendor_perl/5.26.1/Net/OpenID/Consumer.pm
-/usr/lib/perl5/vendor_perl/5.26.1/Net/OpenID/VerifiedIdentity.pm
+/usr/lib/perl5/vendor_perl/5.28.0/Net/OpenID/Association.pm
+/usr/lib/perl5/vendor_perl/5.28.0/Net/OpenID/ClaimedIdentity.pm
+/usr/lib/perl5/vendor_perl/5.28.0/Net/OpenID/Consumer.pm
+/usr/lib/perl5/vendor_perl/5.28.0/Net/OpenID/VerifiedIdentity.pm
 
 %files dev
 %defattr(-,root,root,-)
