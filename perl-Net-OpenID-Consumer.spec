@@ -4,7 +4,7 @@
 #
 Name     : perl-Net-OpenID-Consumer
 Version  : 1.18
-Release  : 9
+Release  : 10
 URL      : https://cpan.metacpan.org/authors/id/W/WR/WROG/Net-OpenID-Consumer-1.18.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/W/WR/WROG/Net-OpenID-Consumer-1.18.tar.gz
 Summary  : 'Library for consumers of OpenID identities'
@@ -34,6 +34,7 @@ a Relying Party for OpenID (versions 1.1 or 2.0)
 Summary: dev components for the perl-Net-OpenID-Consumer package.
 Group: Development
 Provides: perl-Net-OpenID-Consumer-devel = %{version}-%{release}
+Requires: perl-Net-OpenID-Consumer = %{version}-%{release}
 
 %description dev
 dev components for the perl-Net-OpenID-Consumer package.
