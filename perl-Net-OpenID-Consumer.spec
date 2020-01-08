@@ -4,13 +4,14 @@
 #
 Name     : perl-Net-OpenID-Consumer
 Version  : 1.18
-Release  : 10
+Release  : 11
 URL      : https://cpan.metacpan.org/authors/id/W/WR/WROG/Net-OpenID-Consumer-1.18.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/W/WR/WROG/Net-OpenID-Consumer-1.18.tar.gz
 Summary  : 'Library for consumers of OpenID identities'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
 Requires: perl-Net-OpenID-Consumer-license = %{version}-%{release}
+Requires: perl-Net-OpenID-Consumer-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(CGI)
 BuildRequires : perl(Crypt::DH::GMP)
@@ -48,14 +49,24 @@ Group: Default
 license components for the perl-Net-OpenID-Consumer package.
 
 
+%package perl
+Summary: perl components for the perl-Net-OpenID-Consumer package.
+Group: Default
+Requires: perl-Net-OpenID-Consumer = %{version}-%{release}
+
+%description perl
+perl components for the perl-Net-OpenID-Consumer package.
+
+
 %prep
 %setup -q -n Net-OpenID-Consumer-1.18
+cd %{_builddir}/Net-OpenID-Consumer-1.18
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -65,7 +76,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -74,7 +85,7 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Net-OpenID-Consumer
-cp LICENSE %{buildroot}/usr/share/package-licenses/perl-Net-OpenID-Consumer/LICENSE
+cp %{_builddir}/Net-OpenID-Consumer-1.18/LICENSE %{buildroot}/usr/share/package-licenses/perl-Net-OpenID-Consumer/fa7342adb982b2bc5de778c2a7124d6389d05c1a
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -87,10 +98,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/Net/OpenID/Association.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Net/OpenID/ClaimedIdentity.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Net/OpenID/Consumer.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Net/OpenID/VerifiedIdentity.pm
 
 %files dev
 %defattr(-,root,root,-)
@@ -101,4 +108,11 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-Net-OpenID-Consumer/LICENSE
+/usr/share/package-licenses/perl-Net-OpenID-Consumer/fa7342adb982b2bc5de778c2a7124d6389d05c1a
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/Net/OpenID/Association.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Net/OpenID/ClaimedIdentity.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Net/OpenID/Consumer.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Net/OpenID/VerifiedIdentity.pm
