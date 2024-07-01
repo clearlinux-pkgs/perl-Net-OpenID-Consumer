@@ -7,7 +7,7 @@
 #
 Name     : perl-Net-OpenID-Consumer
 Version  : 1.18
-Release  : 27
+Release  : 28
 URL      : https://cpan.metacpan.org/authors/id/W/WR/WROG/Net-OpenID-Consumer-1.18.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/W/WR/WROG/Net-OpenID-Consumer-1.18.tar.gz
 Summary  : 'Library for consumers of OpenID identities'
